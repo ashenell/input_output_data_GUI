@@ -5,8 +5,12 @@ import models.Model;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class PanelTop extends JPanel {
+
     public JTextField textAge;
     private Model model;
     
@@ -18,7 +22,6 @@ public class PanelTop extends JPanel {
 
     private JTextField txtName, txtAge;
     private JButton btnAdd, btnShow;
-
     public PanelTop(Model model) {
         this.model = model;
         setUpPanel();
@@ -56,6 +59,7 @@ public class PanelTop extends JPanel {
         //Second column
         txtName = new JTextField("", 10);
         txtName.setFont(fontNormal);
+        txtName.setToolTipText("Name must have at least 2-19 characters");
         gbc.gridx = 1;
         gbc.gridy = 0;
         pnlComponents.add(txtName, gbc);
@@ -78,6 +82,7 @@ public class PanelTop extends JPanel {
         //Second column
         txtAge = new JTextField("", 10);
         txtAge.setFont(fontNormal);
+        txtAge.setToolTipText("Age can be between 1-99");
         gbc.gridx = 1;
         gbc.gridy = 1;
         pnlComponents.add(txtAge, gbc);
@@ -105,8 +110,11 @@ public class PanelTop extends JPanel {
 
 
 
+
+
+
     public JTextField getTxtName() {
-        return ButtonAddListener.txtName;
+        return txtName;
     }
 
     public JTextField getTxtAge() {
@@ -120,4 +128,6 @@ public class PanelTop extends JPanel {
     public JButton getBtnShow() {
         return btnShow;
     }
+
+
 }

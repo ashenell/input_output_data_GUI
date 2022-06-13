@@ -17,6 +17,7 @@ public class Model {
     private String fileName = "persons.txt";
 
     private DefaultTableModel dtm = new DefaultTableModel();
+    private JTextField txtAge, txtName;
 
     public Model(){
         fileData = new ArrayList<>();
@@ -34,8 +35,8 @@ public class Model {
                         String name = line.split(";")[0];
                         int age = Integer.parseInt(line.split(";")[1]);
                         fileData.add(new FileData(name, age));
-                        System.out.println("Was able to read lines: " + line);
-                        System.out.println("List check: " + fileData);
+                        //System.out.println("Was able to read lines: " + line);
+                        //System.out.println("List check: " + fileData);
 
                     }
                     return true;
@@ -47,7 +48,7 @@ public class Model {
                 }
             } else {
                 f.createNewFile();
-                System.out.println("Was not able to read the file content!");
+                //System.out.println("Was not able to read the file content!");
             }
         }
         return false;
@@ -66,16 +67,8 @@ public class Model {
         dialog.setTitle("Persons with age");
 
     }
-    private void writeToFileToFile(String name, int age){
-        try (BufferedWriter fw = new BufferedWriter(new FileWriter(fileName, true))) {
-            String line = name + ";" + age;
-            fw.write(line);
-            fw.newLine();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
-    }
+
 
 
 
@@ -101,5 +94,13 @@ public class Model {
 
     public DefaultTableModel getDtm() {
         return dtm;
+    }
+
+    public JTextField getTxtAge() {
+        return txtAge;
+    }
+
+    public JTextField getTxtName() {
+        return txtName;
     }
 }

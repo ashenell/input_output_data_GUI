@@ -1,11 +1,13 @@
 package views;
 
-import listeners.ButtonAddListener;
 import models.Model;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class View extends JFrame {
 
@@ -19,7 +21,7 @@ public class View extends JFrame {
 
 
     public View(Model model) {
-        this.model = this.model;
+        this.model = model;
         setUpFrame();
         setUpPanel();
         addPanelsToFrame();
@@ -76,26 +78,22 @@ public class View extends JFrame {
      *
      * @return Returns text field data
      */
-    public JTextField getTxtAge() {
-        return ButtonAddListener.txtAge();
+    public JTextField getTxtName() {
+        return panelTop.getTxtName();
     }
+
 
 
     /**
      * Getter for age text field
      * @return Returns text filed data
      */
-    public JTextField getTextName() {
-        return ButtonAddListener.txtName();
+    public JTextField getTxtAge() {
+        return panelTop.getTxtAge();
+
     }
 
-    public void setTxtAge(JTextField txtAge) {
-        this.txtAge = ButtonAddListener.txtAge;
-    }
 
-    public void setTxtName(JTextField txtName) {
-        this.txtName = ButtonAddListener.txtName;
-    }
 
     //________________________Listeners___________________________//
 
@@ -115,6 +113,8 @@ public class View extends JFrame {
     public void registerButtonShow(ActionListener al){
         panelTop.getBtnShow().addActionListener(al);
     }
+
+
 
 
 }
