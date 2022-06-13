@@ -80,7 +80,7 @@ public class PanelTop extends JPanel {
         gbc.gridy = 1;
         pnlComponents.add(lblAge, gbc);
         //Second column
-        txtAge = new JTextField("", 10);
+        txtAge = new JTextField("1", 10);
         txtAge.setFont(fontNormal);
         txtAge.setToolTipText("Age can be between 1-99");
         gbc.gridx = 1;
